@@ -68,7 +68,10 @@ open class ElegantEmojiPicker: UIViewController {
         self.localization = localization
         super.init(nibName: nil, bundle: nil)
         
-        self.emojiSections = self.delegate?.emojiPicker(self, loadEmojiSections: config, localization) ?? ElegantEmojiPicker.setupEmojiSections(config: config, localization: localization)
+        let defaultEmojis = ElegantEmojiPicker.setupEmojiSections(config: config, localization: localization)
+        let customEmojis = self.delegate?.emojiPicker(self, loadEmojiSections: config, localization)
+
+        self.emojiSections = customEmojis != nil ? customEmojis + defaultEmojis : defaultEmojis
         
         if let sourceView = sourceView, !AppConfiguration.isIPhone, AppConfiguration.windowFrame.width > 500 {
             self.modalPresentationStyle = .popover
