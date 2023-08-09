@@ -34,7 +34,7 @@ open class ElegantEmojiPicker: UIViewController {
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 40.0, height: 40.0)
+        layout.itemSize = CGSize(width: 70.0, height: 70.0)
         return layout
     }()
     var collectionView: UICollectionView!
